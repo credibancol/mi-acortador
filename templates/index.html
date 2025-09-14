@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acortador de URL - Bancolombia</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffd700, #fff);
+            color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 40px 30px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #000;
+            margin-bottom: 15px;
+        }
+        p.subtitulo {
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+        input[type="text"] {
+            width: 90%;
+            padding: 12px;
+            border: 2px solid #000;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        button {
+            background-color: #000;
+            color: #ffd700;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #ffd700;
+            color: #000;
+        }
+        .resultado {
+            margin-top: 20px;
+        }
+        .resultado a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .resultado a:hover {
+            text-decoration: underline;
+        }
+        .imagen {
+            margin-top: 25px;
+        }
+        .imagen img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Acortador de URL</h1>
+        <p class="subtitulo">Ingresa tu enlace y obtén una versión corta al estilo Bancolombia 🚀</p>
+
+        <form method="post">
+            <input type="text" name="url" placeholder="Pega tu enlace aquí" required>
+            <br>
+            <button type="submit">Acortar</button>
+        </form>
+
+        {% if short_url %}
+        <div class="resultado">
+            <p>✅ Tu enlace acortado: 
+                <a href="{{ short_url }}" target="_blank">{{ short_url }}</a>
+            </p>
+        </div>
+        {% endif %}
+
+        <div class="imagen">
+            <img src="https://img.freepik.com/foto-gratis/retrato-empresario-exitoso-dinero_23-2147980871.jpg" 
+                 alt="Persona feliz con dinero">
+        </div>
+    </div>
+</body>
+</html>
