@@ -6,100 +6,100 @@
     <title>Acortador de URL - Bancolombia</title>
     <style>
         body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #ffd700, #fff);
-            color: #000;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* Fondo general blanco */
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
+            margin: 0;
+            padding: 15px;
         }
         .container {
-            background-color: #fff;
+            background: #ffffff url("/static/descarga.jpg") no-repeat center bottom; 
+            background-size: cover; /* Hace que la imagen se adapte */
+            padding: 30px;
             border-radius: 15px;
-            padding: 40px 30px;
-            max-width: 500px;
-            width: 100%;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
             text-align: center;
-            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 420px; /* Para que no se haga muy grande */
         }
         h1 {
+            font-size: 22px;
             color: #000;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.8); 
+            padding: 5px;
+            border-radius: 8px;
         }
-        p.subtitulo {
-            color: #333;
-            margin-bottom: 25px;
+        p {
             font-size: 14px;
+            color: #222;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 5px;
+            border-radius: 6px;
         }
         input[type="text"] {
             width: 90%;
             padding: 12px;
             border: 2px solid #000;
             border-radius: 8px;
-            margin-bottom: 20px;
-            font-size: 14px;
+            margin-bottom: 15px;
         }
         button {
             background-color: #000;
-            color: #ffd700;
+            color: #fff;
+            padding: 12px 20px;
             border: none;
-            padding: 12px 25px;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 15px;
             font-weight: bold;
-            transition: 0.3s;
         }
         button:hover {
-            background-color: #ffd700;
-            color: #000;
+            background-color: #333;
         }
-        .resultado {
-            margin-top: 20px;
+        .result {
+            margin-top: 15px;
+            font-size: 14px;
+            color: green;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 8px;
+            border-radius: 6px;
         }
-        .resultado a {
-            color: #0066cc;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .resultado a:hover {
-            text-decoration: underline;
-        }
-        .imagen {
-            margin-top: 25px;
-        }
-        .imagen img {
-            max-width: 100%;
-            border-radius: 12px;
-            box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+                max-width: 95%;
+            }
+            h1 {
+                font-size: 18px;
+            }
+            input[type="text"] {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Acortador de URL</h1>
-        <p class="subtitulo">Ingresa tu enlace y obtén una versión corta al estilo Bancolombia 🚀</p>
+        <p>Ingresa tu enlace y obtén una versión corta al estilo Bancolombia 🚀</p>
 
-        <form method="post">
+        <form method="POST">
             <input type="text" name="url" placeholder="Pega tu enlace aquí" required>
             <br>
             <button type="submit">Acortar</button>
         </form>
 
         {% if short_url %}
-        <div class="resultado">
-            <p>✅ Tu enlace acortado: 
-                <a href="{{ short_url }}" target="_blank">{{ short_url }}</a>
-            </p>
-        </div>
+            <div class="result">
+                ✅ Tu enlace acortado: <a href="{{ short_url }}" target="_blank">{{ short_url }}</a>
+            </div>
         {% endif %}
-
-        <div class="imagen">
-            <img src="https://img.freepik.com/foto-gratis/retrato-empresario-exitoso-dinero_23-2147980871.jpg" 
-                 alt="Persona feliz con dinero">
-        </div>
     </div>
 </body>
 </html>
